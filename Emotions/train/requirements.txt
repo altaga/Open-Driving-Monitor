@@ -429,7 +429,7 @@ torchdata==0.7.0
 torchsummary==1.5.1
 torchtext==0.16.0
 torchvision @ https://download.pytorch.org/whl/cu118/torchvision-0.16.0%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=033712f65d45afe806676c4129dfe601ad1321d9e092df62b15847c02d4061dc
-tornado==6.3.2
+tornado==6.3.3
 tqdm==4.66.1
 traitlets==5.7.1
 traittypes==0.2.1
