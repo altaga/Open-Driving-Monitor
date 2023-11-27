@@ -76,6 +76,8 @@ Este esquema general de conexiones muestra como a traves de una camara podemos o
 
 - YoloV3: Mediante OpenCV DNN y la famosa red [YoloV3 from Darknet](https://pjreddie.com/darknet/) realizamos la identificacion de vehiculos y peatones en el punto ciego del auto. [Details](#yolov3-model-testing)
 
+- Open Driving Monitor: Mediante una board habilitada con OpenCV DNN, realizamos un sistema que puede correr los 3 modelos de AI y ademas proveer informacion del GPS del vehiculo en todo momento. La board seleccionada se mostrara mas adelante. [Details](#board-setup)
+
 - Open Driving Navigator: Mediante el framework NextJS, Open Layers y Vercel, realizamos un mapa que nos permite desplegar los automoviles que esten en nuestra plataforma en tiempo real y sus estados. [Details](#open-driving-map-webpage)
 
 - Open Driving Emulator: Mediante el framework de React Native y AWS IoT, realizamos un emulador de automovil para que puedas confirmar que los datos llegan correctamente a nuestro mapa online. [Details](#open-driving-emulator-android-native-app)
@@ -92,6 +94,8 @@ Este esquema general de conexiones muestra como a traves de una camara podemos o
 
 ## Online Training:
 
+
+
 ### Emotion Model Training:
 
 
@@ -102,13 +106,19 @@ Este esquema general de conexiones muestra como a traves de una camara podemos o
 
 ## Online Models Testing:
 
+
+
 ### Emotion Model Testing:
 
 
 
 ### Drowsiness Model Testing:
 
+
+
 ### YoloV3 Model Testing:
+
+
 
 # Board Setup:
 
@@ -132,19 +142,37 @@ Este esquema general de conexiones muestra como a traves de una camara podemos o
 
 # Open Driving Map (WebPage):
 
+
+
 ## NextJS:
 
+
+
 ## AWS Iot:
+
+
 
 ## Vercel:
 
+
+
 # Open Driving Emulator (Android Native App):
+
+
 
 ## React Native Setup:
 
+
+
 ## AWS Iot:
 
+
+
 ## Google Play:
+
+Este es el enlace de la beta de nuestra aplicacion, con ella podras mandar informacion a nuestro mapa online y simular nuestro sistema sin hardware adicional. Los modelos de AI podran ser probados desde la aplicacion en versiones futuras mediante [OpenCV.JS](https://docs.opencv.org/3.4/d5/d10/tutorial_js_root.html)
+
+<img src="https://i.ibb.co/sQfN4y7/image.png" width="1000">
 
 https://play.google.com/store/apps/details?id=com.altaga.ODS
 
