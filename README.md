@@ -450,6 +450,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Drowsiness:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/ALhJKYtyX7Q)  
 
   Sorry github does not allow embed videos.
@@ -457,6 +458,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Emotions:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/37lpyZrZbPw)
 
   Sorry github does not allow embed videos.
@@ -464,6 +466,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Yolo:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/b_tWIjI1-8c)
 
   Sorry github does not allow embed videos.
@@ -473,6 +476,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Drowsiness:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/c6ioMZixa9U)
 
   Sorry github does not allow embed videos.
@@ -480,6 +484,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Emotions:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/hM1KTele-LE)
 
   Sorry github does not allow embed videos.
@@ -487,6 +492,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Yolo:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/-PLD04Vq0mI)
 
   Sorry github does not allow embed videos.
@@ -496,6 +502,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Drowsiness:
 
   Video: Click on the image
+  
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/1xDIpZbogDo)
 
   Sorry github does not allow embed videos.
@@ -503,6 +510,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Emotions:
 
   Video: Click on the image
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/sdUzYwAY8LI)
 
   Sorry github does not allow embed videos.
@@ -510,6 +518,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Yolo:
 
   Video: Click on the image
+  
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/bbcro-RTcR0)
 
   Sorry github does not allow embed videos.
