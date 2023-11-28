@@ -4,6 +4,13 @@ Drowsiness, Blind Spot, and Emotions Monitor system for driving and heavy machin
 
 <img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="1000">
 
+# Fast Links:
+
+Video Demo: Click on the image
+[![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
+
+Sorry github does not allow embed videos.
+
 # Introduction:
 
 
@@ -597,12 +604,18 @@ Para utilizar la app, solo tendras que abrir la aplicacion, aceptar los permisos
 
 # The Final Product:
 
+### Complete System:
 
+<img src="https://i.ibb.co/WsggbsV/20231124-151109.jpg">
+
+### In-car system:
+
+<img src="https://i.ibb.co/Z6nF54M/20231127-132608.png" width="49%"> <img src="https://i.ibb.co/PQm4mGk/20231127-125635.png" width="49%">
 
 # EPIC DEMO:
 
 Video: Click on the image
-[![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](https://youtu.be/rNhcBHKiGik)
+[![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
 
 Sorry github does not allow embed videos.
 
@@ -627,6 +640,7 @@ Links:
 # Table of contents
 
 - [Open Driving Monitor](#open-driving-monitor)
+- [Fast Links:](#fast-links)
 - [Introduction:](#introduction)
 - [Solution:](#solution)
 - [Materials:](#materials)
@@ -659,6 +673,8 @@ Links:
   - [Google Play:](#google-play)
   - [How use it:](#how-use-it)
 - [The Final Product:](#the-final-product)
+    - [Complete System:](#complete-system)
+    - [In-car system:](#in-car-system)
 - [EPIC DEMO:](#epic-demo)
 - [Commentary:](#commentary)
 - [References:](#references)
