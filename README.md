@@ -53,6 +53,8 @@ https://openlayers.org/
 Optional Software:
 - Jetson SDK Manager
 https://developer.nvidia.com/sdk-manager
+- React Native:
+https://reactnative.dev/
   
 Online Platforms:
 - Google Colab:
@@ -255,6 +257,35 @@ El modelo utilizado en la prueba es el modelo Yolo-Tiny, debido a que a que es e
 La elección correcta del hardware para estos modelos de AI es escencial para un correcto funcionamiento, ajustarse al consumo energetico del vehiculo y el presupuesto para realizar este proyecto en produccion.
 
 <img src="https://i.ibb.co/bXrn5h9/New-Project-4.png" width="1000">
+
+En todas las boards la configuracion de AWS IoT es la misma, ya que se hace a travez de certificados en la siguiente seccion de codigo.
+
+[CODE](./RPi%20Deploy/iot-mqtt.py)
+
+    EndPoint = "XXXXXXXXXX-ats.iot.us-east-1.amazonaws.com"
+    caPath = "opencvDNN/certs/aws-iot-rootCA.crt"
+    certPath = "opencvDNN/certs/aws-iot-device.pem"
+    keyPath = "opencvDNN/certs/aws-iot-private.key"
+
+El data frame que hay que mandar a la plataforma para que empiecen a aparecer datos es el siguiente.
+
+    {
+      "coordinates": [
+        -99.4738495,
+        19.3749642
+      ],
+      "color": "#808080",
+      "data": "Emotion: Neutral\nState: Awake",
+      "id": 98574584180
+    }
+
+Y la configuracion del GPS de igual forma no tiene diferencia entre una board a otra ya que todas tienen la misma configuracion de 40 pines.
+
+[CODE](./RPi%20Deploy/Gps/gps.py)
+
+El modulo GPS no requiere ninguna configuracion adicional, este se confugura solo al tenerlo conectado, cuando este ya este funcionando parpadeara el led en la board cada segundo.
+
+<img src="https://i.ibb.co/gzfhDMr/image.png" width="600">
 
 ## Raspberry Pi 4:
 
@@ -478,6 +509,10 @@ Teniendo ya la data del vehiculo realizamos una plataforma web que nos permite m
 
 <img src="https://i.ibb.co/pnGjwNy/image.png" width="600">
 
+URL: https://open-driving-navigator.vercel.app/
+
+NOTA: la pagina requiere los permisos de localizacion para que al mandar datos a la plataforma podamos ver los autos aprecer en nuestra localizacion.
+
 ## NextJS:
 
 Para la plataforma web se utilizo el framework de [NextJS](https://nextjs.org/) en su version mas recente (11/28/2023) y los mapas open source [Open Layers](https://openlayers.org/).
@@ -503,38 +538,62 @@ La configuracion de AWS IoT en la pagina web se realiza en la siguiente seccion 
     };
     module.exports = awsConfiguration;
 
-Y en los devices IoT a travez de certificados en la siguiente seccion de codigo.
-
-[CODE](./RPi%20Deploy/iot-mqtt.py)
-
-    EndPoint = "XXXXXXXXXX-ats.iot.us-east-1.amazonaws.com"
-    caPath = "opencvDNN/certs/aws-iot-rootCA.crt"
-    certPath = "opencvDNN/certs/aws-iot-device.pem"
-    keyPath = "opencvDNN/certs/aws-iot-private.key"
-
 ## Vercel:
 
+El despliegue de la pagina web a internet es posible hacerlo facilmente y de forma gratuita gracias a la plataforma de Vercel, [Check Free Plan Limits](https://vercel.com/docs/limits/overview)
 
+<img src="https://i.ibb.co/vwWjdtG/image.png" width="600">
+
+Solo es necesario conectar el repositorio principal de la pagina web con Vercel y automaticamente realizara el deployment.
+
+URL: https://open-driving-navigator.vercel.app/
 
 # Open Driving Emulator (Android Native App):
 
+Podemos realizar la simulacion de un autommovil mandando datos desde el simulador hacia la plataforma.
 
+<img src="https://i.ibb.co/pnGjwNy/image.png" width="600">
+
+NOTA: la app requiere los permisos de localizacion para que al mandar datos a la plataforma podamos ver el auto simulado aprecer en nuestra localizacion.
 
 ## React Native Setup:
 
+Para realizar el emulador se utilizo el framework de [React Native](https://reactnative.dev/) en su version mas recente (11/28/2023).
 
+Todo el codigo de la app es open source y esta en el siguiente link.
+
+[CODE](./Emulator%20ReactNative/)
 
 ## AWS Iot:
 
+La comunicacion entre la app y la pagina web se realiza mediante AWS IoT ya que nos permite manetener una conexion segura en todo momento y que usamos el protocolo MQTTS.
 
+<img src="https://i.ibb.co/Jq9W7GW/mqtts-drawio.png" width="600">
+
+La configuracion de AWS IoT en la app es exactamente el mismo que el de la pagina web, ya que ambos funcionan con javascript y este se realiza en la siguiente seccion de codigo.
+
+[CODE](./Emulator%20ReactNative/src/utils/aws-configuration.js)
+
+    var awsConfiguration = {
+      poolId: "us-east-1:xxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // 'YourCognitoIdentityPoolId'
+      host:"xxxxxxxxxxxxxxxxxxxxx.iot.us-east-1.amazonaws.com", // 'YourAwsIoTEndpoint', e.g. 'prefix.iot.us-east-1.amazonaws.com'
+      region: "us-east-1" // 'YourAwsRegion', e.g. 'us-east-1'
+    };
+    module.exports = awsConfiguration;
 
 ## Google Play:
 
-Este es el enlace de la beta de nuestra aplicacion, con ella podras mandar informacion a nuestro mapa online y simular nuestro sistema sin hardware adicional. Los modelos de AI podran ser probados desde la aplicacion en versiones futuras mediante [OpenCV.JS](https://docs.opencv.org/3.4/d5/d10/tutorial_js_root.html)
+Para facilitar el que puedan probarla plataforma web. Este es el enlace de la beta de nuestra aplicacion, con ella podras mandar informacion a nuestro mapa online y simular nuestro sistema sin hardware adicional. Los modelos de AI podran ser probados desde la aplicacion en versiones futuras mediante [OpenCV.JS](https://docs.opencv.org/3.4/d5/d10/tutorial_js_root.html)
 
 <img src="https://i.ibb.co/sQfN4y7/image.png" width="1000">
 
 https://play.google.com/store/apps/details?id=com.altaga.ODS
+
+## How use it:
+
+Para utilizar la app, solo tendras que abrir la aplicacion, aceptar los permisos de localizacion y finalmente presional "Start Emulation"
+
+<img src="https://i.ibb.co/nwrjCmW/vlcsnap-2023-11-28-16h57m14s456.png" width="32%"> <img src="https://i.ibb.co/vsLQChD/vlcsnap-2023-11-28-16h57m10s157.png" width="32%"> <img src="https://i.ibb.co/nw24BLp/vlcsnap-2023-11-28-16h57m33s176.png" width="32%">
 
 # The Final Product:
 
@@ -598,6 +657,7 @@ Links:
   - [React Native Setup:](#react-native-setup)
   - [AWS Iot:](#aws-iot-1)
   - [Google Play:](#google-play)
+  - [How use it:](#how-use-it)
 - [The Final Product:](#the-final-product)
 - [EPIC DEMO:](#epic-demo)
 - [Commentary:](#commentary)
