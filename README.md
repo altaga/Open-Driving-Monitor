@@ -518,7 +518,7 @@ Comparamos el funcionamiento de todas las redes neuronales en cada una de las bo
 - Yolo:
 
   Video: Click on the image
-  
+
   [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/bbcro-RTcR0)
 
   Sorry github does not allow embed videos.
@@ -621,7 +621,7 @@ Para facilitar el que puedan probarla plataforma web. Este es el enlace de la be
 
 <img src="https://i.ibb.co/sQfN4y7/image.png" width="1000">
 
-https://play.google.com/store/apps/details?id=com.altaga.ODS
+URL: https://play.google.com/store/apps/details?id=com.altaga.ODS
 
 ## How use it:
 
