@@ -31,13 +31,33 @@ Sorry github does not allow embed videos.
 
 # Introduction:
 
+Driving has evolved into a daily routine for humans, comparable to eating, brushing our teeth, or sleeping. However, it has transformed into a time-consuming activity that occupies a significant portion of our daily lives. Moreover, if specific safety protocols are neglected, driving can pose potential risks.
 
+<img src="https://i.ibb.co/HKC3yBh/e4264624281d816222229deed61c8e32.webp" width="1000">
+
+# Problem:
+
+The Center for Disease Control and Prevention (CDC) says that 35% of American drivers sleep less than the recommended minimum of seven hours a day. It mainly affects attention when performing any task and in the long term, it can affect health permanently [[1]](https://medlineplus.gov/healthysleep.html).
+
+<img src="https://i.ibb.co/1Xz9MWX/image.png" width="1000">
+
+According to a report by the WHO (World Health Organization) [[2]](http://www.euro.who.int/__data/assets/pdf_file/0008/114101/E84683.pdf), falling asleep while driving is one of the leading causes of traffic accidents. Up to 24% of accidents are caused by falling asleep, and according to the DMV USA (Department of Motor Vehicles) [[3]](https://dmv.ny.gov/press-release/press-release-03-09-2018) and NHTSA (National Highway traffic safety administration) [[4]](https://www.nhtsa.gov/risky-driving/drowsy-driving), 20% of accidents are related to drowsiness, being at the same level as accidents due to alcohol consumption with sometimes even worse consequences than those.
+
+<img src="https://media2.giphy.com/media/PtrhzZJhbEBm8/giphy.gif" width="1000">
+
+Also, the NHTSA mentions that being angry or in an altered state of mind can lead to more dangerous and aggressive driving [[5]](https://www.nhtsa.gov/risky-driving/speeding), endangering the life of the driver due to these psychological disorders.
+
+<img src="https://i.ibb.co/YcWYJNw/tenor-1.gif" width="1000">
 
 # Solution:
 
+We built a prototype which is capable of performing these 3 monitoring reliably and in addition to being easy to install in any vehicle.
 
+<img src="https://i.ibb.co/WsggbsV/20231124-151109.jpg">
 
-# Materials:
+This PoC uses a Raspberry Pi 4 as the main computer to maintain low consumption for continuous use in a vehicle.
+
+## Materials:
 
 Hardware:
 - RaspberryPi 4 (4Gb) - x1.
@@ -91,7 +111,7 @@ https://vercel.com/
 - Open Driving Navigator:
 https://open-driving-navigator.vercel.app/
 
-# Connection Diagram:
+## Connection Diagram:
 
 <img src="https://i.ibb.co/XZdX6ZB/software-drawio.png" width="1000">
 
@@ -109,7 +129,7 @@ Este esquema general de conexiones muestra como a traves de una camara podemos o
 
 - Open Driving Emulator: Mediante el framework de React Native y AWS IoT, realizamos un emulador de automovil para que puedas confirmar que los datos llegan correctamente a nuestro mapa online. [Details](#open-driving-emulator-android-native-app)
 
-# Hardware Diagram:
+## Hardware Diagram:
 
 Nuestro sistema de hardware muestra la correcta conexion del hardware utilizado, la seleccion de una raspberry pi como nuestro hardware final se realizo haciendo [benchmarks](#comparison-benchmarks) con otras boards especializadas en AI.
 
@@ -673,10 +693,11 @@ Links:
     - [WebPage:](#webpage)
     - [Native App:](#native-app)
 - [Introduction:](#introduction)
+- [Problem:](#problem)
 - [Solution:](#solution)
-- [Materials:](#materials)
-- [Connection Diagram:](#connection-diagram)
-- [Hardware Diagram:](#hardware-diagram)
+  - [Materials:](#materials)
+  - [Connection Diagram:](#connection-diagram)
+  - [Hardware Diagram:](#hardware-diagram)
 - [Online Train and Test:](#online-train-and-test)
   - [Online Training:](#online-training)
     - [Emotions Model Training:](#emotions-model-training)
