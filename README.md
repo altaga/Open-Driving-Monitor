@@ -6,10 +6,28 @@ Drowsiness, Blind Spot, and Emotions Monitor system for driving and heavy machin
 
 # Fast Links:
 
+### Video Demo:
+
 Video Demo: Click on the image
 [![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
 
 Sorry github does not allow embed videos.
+
+### Test Notebooks:
+
+- Emotions: [CLICK HERE](./Emotions/test/Test_Emotions_DNN.ipynb)
+
+- Drowsiness: [CLICK HERE](./Drowsiness/test/Test_Blink_DNN.ipynb)
+
+- YoloV3: [CLICK HERE](./Yolo/test/LoadAndTestYolo.ipynb)
+
+### WebPage:
+
+- Open Driving Navigator: [CLICK HERE](https://open-driving-navigator.vercel.app/)
+
+### Native App:
+
+- Open Driving Emulator: [CLICK HERE](https://play.google.com/store/apps/details?id=com.altaga.ODS)
 
 # Introduction:
 
@@ -641,6 +659,10 @@ Links:
 
 - [Open Driving Monitor](#open-driving-monitor)
 - [Fast Links:](#fast-links)
+    - [Video Demo:](#video-demo)
+    - [Test Notebooks:](#test-notebooks)
+    - [WebPage:](#webpage)
+    - [Native App:](#native-app)
 - [Introduction:](#introduction)
 - [Solution:](#solution)
 - [Materials:](#materials)
