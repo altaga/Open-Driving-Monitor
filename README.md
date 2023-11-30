@@ -2,14 +2,14 @@
 
 Drowsiness, Blind Spot, and Emotions Monitor system for driving intended for conventional automobiles and and heavy machinery. Its objective is to enhance safety through fatigue detection, blind spot awareness, and emotional state analysis, all powered by OpenCV.
 
-<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="1000">
+<img src="https://i.ibb.co/Vm05pCc/Image.png" width="1000">
 
 # Fast Links:
 
 ### Video Demo:
 
 Video Demo: Click on the image
-[![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
+[![Car](https://i.ibb.co/Vm05pCc/Image.png)](pending...)
 
 
 ### Test Notebooks:
@@ -495,20 +495,20 @@ We compare the performance of all the neural networks on each of the boards in o
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/ALhJKYtyX7Q)  
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/ALhJKYtyX7Q)  
 
 
 - Emotions:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/37lpyZrZbPw)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/37lpyZrZbPw)
 
 - Yolo:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/b_tWIjI1-8c)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/b_tWIjI1-8c)
 
 
 ### Jetson Nano:
@@ -517,21 +517,21 @@ We compare the performance of all the neural networks on each of the boards in o
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/c6ioMZixa9U)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/c6ioMZixa9U)
 
 
 - Emotions:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/hM1KTele-LE)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/hM1KTele-LE)
 
 
 - Yolo:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/-PLD04Vq0mI)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/-PLD04Vq0mI)
 
 
 ### Jetson AGX:
@@ -540,21 +540,21 @@ We compare the performance of all the neural networks on each of the boards in o
 
   Video: Click on the image
   
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/1xDIpZbogDo)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/1xDIpZbogDo)
 
 
 - Emotions:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/sdUzYwAY8LI)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/sdUzYwAY8LI)
 
 
 - Yolo:
 
   Video: Click on the image
 
-  [<img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="300">](https://youtu.be/bbcro-RTcR0)
+  [<img src="https://i.ibb.co/Vm05pCc/Image.png" width="300">](https://youtu.be/bbcro-RTcR0)
 
 
 ## Benchmarks:
@@ -676,7 +676,7 @@ To use the app, you will only have to open the application, accept the location 
 # EPIC DEMO:
 
 Video: Click on the image
-[![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
+[![Car](https://i.ibb.co/Vm05pCc/Image.png)](pending...)
 
 
 # Commentary and final words:
@@ -710,6 +710,7 @@ Links:
 - [Introduction:](#introduction)
 - [Problem:](#problem)
 - [Solution:](#solution)
+    - [I think we can have all three now in the year 2023!](#i-think-we-can-have-all-three-now-in-the-year-2023)
   - [Materials:](#materials)
   - [Connection Diagram:](#connection-diagram)
   - [Hardware Diagram:](#hardware-diagram)
@@ -743,6 +744,6 @@ Links:
     - [Complete System:](#complete-system)
     - [In-car system:](#in-car-system)
 - [EPIC DEMO:](#epic-demo)
-- [Commentary:](#commentary)
+- [Commentary and final words:](#commentary-and-final-words)
 - [References:](#references)
 - [Table of contents](#table-of-contents)
