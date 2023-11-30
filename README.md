@@ -318,7 +318,7 @@ Here is a link directly to the testing notebook: [CLICK HERE](./Yolo/test/LoadAn
 
 We invite you to open the Notebook and take the test yourself. Nevetheless here we share the test results with you.
 
-<img src="https://i.ibb.co/2SsxxBm/image.png" width="1000">
+<img src="https://i.ibb.co/2c7mHGr/Image.png" width="1000">
 
 The model used in the test is the Yolo-Tiny model, because it is the lightest that we can use in this project and its detections are not sufficient for the proper functioning of the project.
 
