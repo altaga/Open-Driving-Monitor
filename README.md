@@ -11,7 +11,6 @@ Drowsiness, Blind Spot, and Emotions Monitor system for driving intended for con
 Video Demo: Click on the image
 [![Car](https://i.ibb.co/ZBxgtS4/logo-1.png)](pending...)
 
-Sorry github does not allow embed videos.
 
 ### Test Notebooks:
 
@@ -50,6 +49,33 @@ Also, the NHTSA mentions that being angry or in an altered state of mind can lea
 <img src="https://i.ibb.co/YcWYJNw/tenor-1.gif" width="1000">
 
 # Solution:
+We have previously developed this idea with a couple of iterations one of them was a small project that ran on Edge impulse, called Edge driving Monitor:
+
+https://www.hackster.io/422087/edge-driving-monitor-c504a8
+
+Regretfully, as you can see, we had quite a lot of limitations in this project.
+The CV models used were very limited because we were just using an ESP32 to run them on site so the information provided had a great deal of error. In addition to that it was slow and the visual stimulus was very limited, at least if you were diving.
+
+At at the time the limitations of entry level hardware and the training models we had at hand were several, the project is almost 3 years old by now.
+
+We also did a second try with a Jetson Nano:
+
+https://devpost.com/software/torch-drowsiness-monitor
+
+We still had a miriad of problems.
+
+At first we wanted to run Pytorch and do the whole CV application on a Raspberry Pi 3, which is much more available and an easier platform to use. It probably was too much processing for the Raspi3 as it wasn't able to run everything we demanded so we upgraded to a Jetson Nano, we found several problems with the thermals at that point.
+
+Later we had a little problem of focus with certain cameras so we had to experiment with several webcams that we had available to find one that didn't require to focus.
+
+What we needed was:
+
+- A better platform to run the CV models
+- Better Models (it was 3 years ago :( )
+- A better User interface
+
+### I think we can have all three now in the year 2023!
+
 
 We built a prototype which is capable of performing these 3 monitoring reliably and in addition to being easy to install in any vehicle.
 
