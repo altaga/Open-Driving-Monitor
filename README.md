@@ -302,7 +302,7 @@ Here is a link directly to the testing notebook: [CLICK HERE](./Drowsiness/test/
 
 We invite you to open the Notebook and perform the test yourself, but when testing with a test dataset that we created, we reached the following results.
 
-<img src="https://i.ibb.co/k8mJvrq/image.png" width="1000">
+<img src="https://i.ibb.co/r7j1DbC/Image.png" width="1000">
 
 Finally, the model precision percentages show us the following.
 
