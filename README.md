@@ -1,6 +1,6 @@
 # Open Driving Monitor
 
-Drowsiness, Blind Spot, and Emotions Monitor system for driving intended for conventional automobiles and and heavy machinery. It objective is to enhance safety through fatigue detection, blind spot awareness, and emotional state analysis, all powered by OpenCV.
+Drowsiness, Blind Spot, and Emotions Monitor system for driving intended for conventional automobiles and and heavy machinery. Its objective is to enhance safety through fatigue detection, blind spot awareness, and emotional state analysis, all powered by OpenCV.
 
 <img src="https://i.ibb.co/ZBxgtS4/logo-1.png" width="1000">
 
