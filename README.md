@@ -196,7 +196,7 @@ https://docs.opencv.org/4.8.0/d6/d87/group__dnnLayerList.html
 
 Here is the link for the training notebook: [CLICK HERE](./Emotions/train/Train_Test_and_Deploy_Emotions.ipynb)
 
-<img src="https://i.ibb.co/t4xrKxS/vlcsnap-2023-11-27-22h52m49s056.png" width="1000">
+<img src="https://i.ibb.co/SVt3wcQ/vlcsnap-2023-11-27-22h52m49s056.png" width="1000">
 
 The neural network to detect emotions is a convolutional neural network designed specifically to recognize and classify emotions through images. To perform this task correctly we design the following neural network in tensorflow.
 
@@ -218,7 +218,7 @@ The neural network to detect emotions is a convolutional neural network designed
 
 The dataset we used in this training was [FER-2013](https://huggingface.co/spaces/mxz/emtion/resolve/c697775e0adc35a9cec32bd4d3484b5f5a263748/fer2013.csv) which is a dataset with more than 28k images of emotions already classified.
 
-<img src="https://i.ibb.co/dtLZfhy/image.png" width="1000">
+<img src="https://i.ibb.co/PNLpDL2/image.png" width="1000">
 
 Already in the notebook we have detailed the entire process of importing the dataset, separating it into Test, Train and Validation subsets, you only have to open the notebook in colab and hit run there to create the model yourself.
 
