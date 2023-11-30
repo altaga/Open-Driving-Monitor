@@ -654,7 +654,7 @@ The configuration of AWS IoT in the app is exactly the same as that of the websi
 
 To make it easier for them to test the web platform. This is the link to the beta of our application, with it you can send information to our online map and simulate our system without additional hardware. AI models can be tested from the application in future versions using [OpenCV.JS](https://docs.opencv.org/3.4/d5/d10/tutorial_js_root.html)
 
-<img src="https://i.ibb.co/sQfN4y7/image.png" width="1000">
+<img src="https://i.ibb.co/zGDN6yp/Image.png" width="1000">
 
 URL: https://play.google.com/store/apps/details?id=com.altaga.ODS
 
