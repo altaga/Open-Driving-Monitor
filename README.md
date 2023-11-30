@@ -288,7 +288,7 @@ Here is a link for the testing training notebook: [CLICK HERE](./Emotions/test/T
 
 We invite you to open the Notebook and perform the test yourself, the dataset we created was 28 images, 7 of each emotion, in order to verify the accuracy with this new data.
 
-<img src="https://i.ibb.co/dgGjX2z/image.png" width="1000">
+<img src="https://i.ibb.co/nggcJQ6/Image.png" width="1000">
 
 Finally, the model precision percentages show us the following.
 
