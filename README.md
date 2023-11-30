@@ -141,195 +141,195 @@ https://open-driving-navigator.vercel.app/
 
 <img src="https://i.ibb.co/XZdX6ZB/software-drawio.png" width="1000">
 
-Este esquema general de conexiones muestra como a traves de una camara podemos obtener las imaganes del conductor o las de las calles para posteriormente obtener datos relevantes del estado de alerta del conductor, su estado de animo y los objetos alrededor del auto. Todo retroalimentado por nuestra pantalla interna y nuestro web map online.
+This general connection diagram shows how through a camera we can obtain images of the driver or those of the streets to later obtain relevant data on the driver's alertness, his state of mind and the objects around the car. All fed back by our internal screen and our online web map.
 
-- Eye State Detection: Mediante un preprocesamiento en OpenCV haarcascades, OpenCV DNN y un modelo de inferencia frozen graph (Tensor Flow), obtenemos el estado de atencion y somnolencia del conductor. [Details](#drowsiness-model-training)
+- Eye State Detection: Through preprocessing in OpenCV haarcascades, OpenCV DNN and a frozen graph inference model (Tensor Flow), we obtain the driver's state of attention and drowsiness.. [Details](#drowsiness-model-training)
   
-- Emotions Identification: Mediante un preprocesamiento en OpenCV haarcascades, OpenCV DNN y un modelo de inferencia frozen graph (Tensor Flow), obtenemos el estado de animo del conductor. [Details](#emotions-model-training)
+- Emotions Identification: Through preprocessing in OpenCV haarcascades, OpenCV DNN and a frozen graph inference model (Tensor Flow), we obtain the driver's mood.[Details](#emotions-model-training)
 
-- YoloV3: Mediante OpenCV DNN y la famosa red [YoloV3 from Darknet](https://pjreddie.com/darknet/) realizamos la identificacion de vehiculos y peatones en el punto ciego del auto. [Details](#yolov3-model-testing)
+- YoloV3: Using OpenCV DNN and the famous network [YoloV3 from Darknet](https://pjreddie.com/darknet/) We carry out the identification of vehicles and pedestrians in the blind spot of the car. [Details](#yolov3-model-testing)
 
-- Open Driving Monitor: Mediante una board habilitada con OpenCV DNN, realizamos un sistema que puede correr los 3 modelos de AI y ademas proveer informacion del GPS del vehiculo en todo momento. La board seleccionada se mostrara mas adelante. [Details](#board-setup)
+- Open Driving Monitor: Using a board enabled with OpenCV DNN, we created a system that can run the 3 AI models and also provide vehicle GPS information at all times. The selected board will be shown later. [Details](#board-setup)
 
-- Open Driving Navigator: Mediante el framework NextJS, Open Layers y Vercel, realizamos un mapa que nos permite desplegar los automoviles que esten en nuestra plataforma en tiempo real y sus estados. [Details](#open-driving-navigator-webpage)
+- Open Driving Navigator: Using the NextJS, Open Layers and Vercel framework, we create a map that allows us to display the cars that are on our platform in real time and their states.. [Details](#open-driving-navigator-webpage)
 
-- Open Driving Emulator: Mediante el framework de React Native y AWS IoT, realizamos un emulador de automovil para que puedas confirmar que los datos llegan correctamente a nuestro mapa online. [Details](#open-driving-emulator-android-native-app)
+- Open Driving Emulator: Using the React Native and AWS IoT framework, we created a car emulator so you can confirm that the data correctly reaches our online map.. [Details](#open-driving-emulator-android-native-app)
 
 ## Hardware Diagram:
 
-Nuestro sistema de hardware muestra la correcta conexion del hardware utilizado, la seleccion de una raspberry pi como nuestro hardware final se realizo haciendo [benchmarks](#comparison-benchmarks) con otras boards especializadas en AI.
+Our hardware system shows the correct connection of the hardware used, the selection of a raspberry pi as our final hardware was made by doing [benchmarks](#comparison-benchmarks) with other boards specialized in AI.
 
 <img src="https://i.ibb.co/znDn53G/hardware-drawio.png" width="1000">
 
-- Raspberry Pi 4 (4Gb): esta board permite correr mediante el modulo OpenCV DNN las redes nuronales correspondientes a cada modulo con una eficiencia ideal para el POC.
+- Raspberry Pi 4 (4Gb): This board allows the neural networks corresponding to each module to be run using the OpenCV DNN module with an ideal efficiency for the POC.
 
-- USB Cam: esta camara permite el input de imagenes a las redes neuronales, esta puede ser sustituida por una camara nativa de raspberry o una camara inalambrica.
+- USB Cam: This camera allows the input of images to the neural networks, it can be replaced by a native Raspberry camera or a wireless camera.
 
-- GY-GPS6MV2: este modulo permite obtener los datos de geolocalizacion del dispositivo ya que la raspberry pi apesar de ser un computador no contiene GPS nativo. Este sensor provee mediante serial lo datos a la raspberry.
+- GY-GPS6MV2: This module allows you to obtain the geolocation data of the device since the Raspberry Pi, despite being a computer, does not contain native GPS. This sensor provides data to the raspberry via serial.
 
-- Speaker: este speaker nos permite obtener una señal de alarma auditiva para la correcta funcion del drowsiness detector, de igual manera de puede optar por conectarlo directamente a los speakers del automovil.
+- Speaker: This speaker allows us to obtain an auditory alarm signal for the correct function of the drowsiness detector, in the same way you can choose to connect it directly to the car speakers.
 
-- LCD Screen: Permite la visualizacion del sistema de navegacion en nuestro [Open Driving Navigator](#open-driving-navigator-webpage), ademas de proveer informacion del Blind point al lateral del auto.
+- LCD Screen: Allows the visualization of the navigation system in our [Open Driving Navigator](#open-driving-navigator-webpage), in addition to providing Blind point information on the side of the car. 
 
 # Online Train and Test:
 
-El correcto entrenamiento y pruebas de las redes neuronales son fundamentales para potenciar la eficiencia de los sistemas de asistencia al conductor, tal como se proponen en este proyecto. No obstante, llevar a cabo estos procesos de manera efectiva requiere de datasets y frameworks apropiados. En esta sección, proporcionaremos todos los recursos necesarios para que puedas reproducir las redes neuronales presentadas en este proyecto asi como probar su eficiencia.
+The correct training and testing of neural networks is essential to enhance the efficiency of driver assistance systems, as proposed in this project. However, carrying out these processes effectively requires appropriate datasets and frameworks. In this section, we will provide all the necessary resources so that you can reproduce the neural networks presented in this project as well as test their efficiency.
 
 <img src="https://i.ibb.co/q5Thrq9/image.png" width="1000">
 
-**NOTA:** la unica red neuronal que no se entreno fue la red YoloV3 de Darknet debido a que es una red ya entrenada y lista para usar, asi que solo mostraremos su implementacion con OpenCV DNN.
+**NOTE:** The only neural network that was not trained was the Darknet YoloV3 network because it is a network already trained and ready to use, so we will only show its implementation with OpenCV DNN.
 
 ## Online Training:
 
-Para el eficiente entrenamiento de este tipo de redes nuronales suele requerirse el uso de GPUs debido a su eficiencia excepcional en comparación con las CPU. Sin embargo este tipo de infraestructura puede ser algo cara y dificil de mantener. Si embargo gracias a Google y TensorFlow posible realizar este entrenamiento de forma gratuita gracias a Google Colab.
+For the efficient training of this type of neural networks, the use of GPUs is usually required due to their exceptional efficiency compared to CPUs. However, this type of infrastructure can be somewhat expensive and difficult to maintain. However, thanks to Google and TensorFlow, it is possible to do this training for free thanks to Google Colab.
 
 <img src="https://i.ibb.co/sFxVFTX/image.png" width="1000">
 
-Al tener una cuenta de google, este nos dara acceso gratuito a Jupyter Notebooks Online con GPU o TPU (con ciertas limitaciones). Los cuales nos son suficientes para entrenar, desplegar las redes neuronales y compartirles los notebooks que mostraremos a continuacion.
+By having a Google account, it will give us free access to Jupyter Notebooks Online with GPU or TPU (with certain limitations). Which are enough for us to train, deploy the neural networks and share the notebooks that we will show below.
 
-**NOTA:** Tenga en cuenta las layers compatibles con OpenCV DNN module, algunos modelos con layers complejas o muy modernas tal vez no son compatibles aun.
+**NOTE:** Please note the layers supported by the OpenCV DNN module, some models with complex or very modern layers may not be supported yet.
 
 https://docs.opencv.org/4.8.0/d6/d87/group__dnnLayerList.html
 
 ### Emotions Model Training:
 
-Aqui un link directamente al notebook de entrenamient: [CLICK HERE](./Emotions/train/Train_Test_and_Deploy_Emotions.ipynb)
+Here is the link for the training notebook: [CLICK HERE](./Emotions/train/Train_Test_and_Deploy_Emotions.ipynb)
 
 <img src="https://i.ibb.co/t4xrKxS/vlcsnap-2023-11-27-22h52m49s056.png" width="1000">
 
-La red neuronal para detectar emociones es una red neuronal convolucional diseñada específicamente para reconocer y clasificar emociones a travez de imagenes. Para relizar esta tarea correctamente diseñamos la siguiente red neuronal en tensorflow.
+The neural network to detect emotions is a convolutional neural network designed specifically to recognize and classify emotions through images. To perform this task correctly we design the following neural network in tensorflow.
 
 <img src="https://i.ibb.co/wBNZrw2/output-1.png" width="1000">
 
-- Conv2d: Esta capa aplica kernels a la imagen y obtiene sus caracteristicas principales.
+- Conv2d: This layer applies kernels to the image and obtains its main characteristics.
   
-- Activation: Esta capa siempre va despues de una capa convolucional para detectar las activaciones despues del kernel.
+- Activation: This layer always comes after a convolutional layer to detect activations after the kernel.
   
-- BatchNormalization: Esta capa normaliza las activaciones de una capa anterior y acelera el entrenamiento de la red neuronal.
+- BatchNormalization: This layer normalizes the activations of a previous layer and accelerates the training of the neural network.
   
-- MaxPooling2D: esta capa reduce el número de parámetros en la red y se agrega con el fin de prevenir el overfitting en el entrenamiento.
+- MaxPooling2D: this layer reduces the number of parameters in the network and is added in order to prevent overfitting in training.
   
-- Dropout: apaga aleatoriamente un porcentaje de neuronas durante cada paso de entrenamiento, lo que mejora la generalización del modelo.
+- Dropout: Randomly turns off a percentage of neurons during each training step, which improves model generalization.
   
-- Flatten: esta capa convierte la salida de las capas 3D en un vector unidimensional que finalmente pasan a capas de redes neuronales totalmente conectadas, osea la convierte en un formato que esta capa entiende y puede clasificar.
+- Flatten: this layer converts the output of the 3D layers into a one-dimensional vector that is finally passed to layers of fully connected neural networks, that is, it converts it into a format that this layer understands and can classify.
   
-- Dense: en esta capa cada neurona está conectada a todas las neuronas de la capa anterior y tiene el fin de realizar la clasificacion final.
+- Dense: in this layer each neuron is connected to all the neurons in the previous layer and has the purpose of performing the final classification.
 
-El dataset que utilizamos en este entrenamiento fue [FER-2013](https://huggingface.co/spaces/mxz/emtion/resolve/c697775e0adc35a9cec32bd4d3484b5f5a263748/fer2013.csv) el cual es un dataset con mas de 28k de imnagenes de emociones ya clasificadas.
+The dataset we used in this training was [FER-2013](https://huggingface.co/spaces/mxz/emtion/resolve/c697775e0adc35a9cec32bd4d3484b5f5a263748/fer2013.csv) which is a dataset with more than 28k images of emotions already classified.
 
 <img src="https://i.ibb.co/dtLZfhy/image.png" width="1000">
 
-Ya en el notebook tenemos detallado todo el proceso de importar el dataset, separarlo en Test, Train y Validation subsets, unicamente tienes que abir el notebook en colab y darle run all para crear el modelo por ti mismo.
+Already in the notebook we have detailed the entire process of importing the dataset, separating it into Test, Train and Validation subsets, you only have to open the notebook in colab and hit run there to create the model yourself.
 
 <img src="https://i.ibb.co/D55MdD3/New-Project.png" width="1000">
 
-El notebook de esta red neuronal es: [CLICK HERE](./Emotions/train/Train_Test_and_Deploy_Emotions.ipynb)
+The notebook for this neural network is: [CLICK HERE](./Emotions/train/Train_Test_and_Deploy_Emotions.ipynb)
 
-**NOTA:** Ademas en la misma carpeta de [Train](./Emotions/train/) agregamos el archivo requirements.txt para que sepas exactamente en que ENV y version de todos los modulos de python se realizo el entrenamiento.
+**NOTE:** Also in the sale file folder [Train](./Emotions/train/) We added the requirements.txt file so you know exactly in which ENV and version of all the python modules the training was carried out.
 
-Finalmente despues del entrenamiento podremos obtener un Frozen Graph el cual es un modelo de inferencia que ya esta optimizado para produccion, este sera el archivo que propocionaremos al modulo OpenCV DNN.
+Finally, after training we will be able to obtain a Frozen Graph which is an inference model that is already optimized for production, this will be the file that we will provide to the OpenCV DNN module.
 
 <img src="https://i.ibb.co/NyLBGqF/image.png" width="1000">
 
-Si quieres descargar directamente el Frozen Graph: [CLICK HERE](./Emotions/model/emotions-v1.pb)
+To directly download the Frozen Graph: [CLICK HERE](./Emotions/model/emotions-v1.pb)
 
 ### Drowsiness Model Training:
 
-Aqui un link directamente al notebook de entrenamiento: [CLICK HERE](./Drowsiness/train/Train_Test_and_Deploy_Blink.ipynb)
+Link to the training notebook: [CLICK HERE](./Drowsiness/train/Train_Test_and_Deploy_Blink.ipynb)
 
 <img src="https://i.ibb.co/MVQfBq2/vlcsnap-2023-11-27-23h13m20s380.png" width="1000">
 
-La red neuronal para detectar el estado del ojo es una red neuronal convolucional diseñada específicamente para reconocer un ojo cerrado de uno abierto. Para relizar esta tarea correctamente diseñamos la siguiente red neuronal en tensorflow.
+The neural network for detecting eye state is a convolutional neural network specifically designed to recognize a closed eye from an open eye. To perform this task correctly we design the following neural network in tensorflow.
 
 <img src="https://i.ibb.co/9N93ttX/New-Project-3.png" width="1000">
 
-- Conv2d: Esta capa aplica kernels a la imagen y obtiene sus caracteristicas principales.
+- Conv2d: This layer applies kernels to the image and obtains its main characteristics.
   
-- Activation: Esta capa siempre va despues de una capa convolucional para detectar las activaciones despues del kernel.
+- Activation: This layer always comes after a convolutional layer to detect activations after the kernel.
   
-- BatchNormalization: Esta capa normaliza las activaciones de una capa anterior y acelera el entrenamiento de la red neuronal.
+- BatchNormalization: This layer normalizes the activations of a previous layer and accelerates the training of the neural network.
   
-- MaxPooling2D: esta capa reduce el número de parámetros en la red y se agrega con el fin de prevenir el overfitting en el entrenamiento.
+- MaxPooling2D: this layer reduces the number of parameters in the network and is added in order to prevent overfitting in training.
   
-- Dropout: apaga aleatoriamente un porcentaje de neuronas durante cada paso de entrenamiento, lo que mejora la generalización del modelo.
+- Dropout: Randomly turns off a percentage of neurons during each training step, which improves model generalization.
   
-- Flatten: esta capa convierte la salida de las capas 3D en un vector unidimensional que finalmente pasan a capas de redes neuronales totalmente conectadas, osea la convierte en un formato que esta capa entiende y puede clasificar.
+- Flatten: this layer converts the output of the 3D layers into a one-dimensional vector that is finally passed to layers of fully connected neural networks, that is, it converts it into a format that this layer understands and can classify.
   
-- Dense: en esta capa cada neurona está conectada a todas las neuronas de la capa anterior y tiene el fin de realizar la clasificacion final.
+- Dense: in this layer each neuron is connected to all the neurons in the previous layer and has the purpose of performing the final classification.
 
-El dataset que utilizamos en este entrenamiento fue [B-eye](https://github.com/altaga/DBSE-monitor/raw/master/Drowsiness/train/dataset/dataset_B_Eye_Images.zip) el cual es un dataset con mas de 4,800 imagenes de ojos abiertos y cerrados ya clasificados.
+The dataset we used in this training was[B-eye](https://github.com/altaga/DBSE-monitor/raw/master/Drowsiness/train/dataset/dataset_B_Eye_Images.zip) which is a dataset with more than 4,800 images of open and closed eyes already classified.
 
 <img src="https://i.ibb.co/R6Vg6HS/image.png" width="1000">
 
-Ya en el notebook tenemos detallado todo el proceso de importar el dataset, separarlo en Test, Train y Validation subsets, unicamente tienes que abir el notebook en colab y darle run all para crear el modelo por ti mismo.
+Already in the notebook we have detailed the entire process of importing the dataset, separating it into Test, Train and Validation subsets, you only have to open the notebook in colab and hit run there to create the model yourself.
 
 <img src="https://i.ibb.co/VpmMsWr/New-Project-1.png" width="1000">
 
-El notebook de esta red neuronal es: [CLICK HERE](./Drowsiness/train/Train_Test_and_Deploy_Blink.ipynb)
+The neural network notebook is: [CLICK HERE](./Drowsiness/train/Train_Test_and_Deploy_Blink.ipynb)
 
-**NOTA:** Ademas en la misma carpeta de [Train](./Drowsiness/train/) agregamos el archivo requirements.txt para que sepas exactamente en que ENV y version de todos los modulos de python se realizo el entrenamiento.
+**NOTE:** Also in the same file folder [Train](./Drowsiness/train/)We added the requirements.txt file so you know exactly in which ENV and version of all the python modules the training was carried out.
 
-Finalmente despues del entrenamiento podremos obtener un Frozen Graph el cual es un modelo de inferencia que ya esta optimizado para produccion, este sera el archivo que propocionaremos al modulo OpenCV DNN.
+Finally, after training we will be able to obtain a Frozen Graph which is an inference model that is already optimized for production, this will be the file that we will provide to the OpenCV DNN module.
 
 <img src="https://i.ibb.co/NyLBGqF/image.png" width="1000">
 
-Si quieres descargar directamente el Frozen Graph: [CLICK HERE](./Drowsiness/model/blink-v1.pb)
+To download directly the Frozen Graph: [CLICK HERE](./Drowsiness/model/blink-v1.pb)
 
 ## Online Models Testing:
 
-Ya que tenemos los modelos listos, es necesario pasar a la etapa de Testing, lo que implica la evaluación exhaustiva de los modelos con inputs totalmente fuera del dataset de entrenamiento, el objetivo de esto es verificar la precisión y el rendimiento del modelo.
+Once we have the models ready, it is necessary to move on to the Testing stage, which involves the exhaustive evaluation of the models with inputs completely outside the training dataset, the objective of this is to verify the accuracy and performance of the model.
 
 <img src="https://i.ibb.co/xzcBvMZ/image.png" width="1000">
 
 ### Emotions Model Testing:
 
-Aqui un link directamente al notebook de testing: [CLICK HERE](./Emotions/test/Test_Emotions_DNN.ipynb)
+Here is a link for the testing training notebook: [CLICK HERE](./Emotions/test/Test_Emotions_DNN.ipynb)
 
-Te invitamos a abrir el Notebook y realizar el test tu mismo, el dataset que realizamos fueron 28 imagenes, 7 de cada emocion, con el fin de verificar la presicion con estos datos nuevos.
+We invite you to open the Notebook and perform the test yourself, the dataset we created was 28 images, 7 of each emotion, in order to verify the accuracy with this new data.
 
 <img src="https://i.ibb.co/dgGjX2z/image.png" width="1000">
 
-Finalmente los porcentajes de presicion del modelo nos arrojaron lo siguiente.
+Finally, the model precision percentages show us the following.
 
 <img src="https://i.ibb.co/sg256sk/image.png" width="1000">
 
-Podemos notar que la emocion que mas tiene problemas al reconocer es el disgusto y el miedo. Lo que nos indica que este modelo aun tiene un rango de mejora.
+We can notice that the emotion that has the most problems recognizing is disgust and fear. Which tells us that this model still has room for improvement.
 
 ### Drowsiness Model Testing:
 
-Aqui un link directamente al notebook de testing: [CLICK HERE](./Drowsiness/test/Test_Blink_DNN.ipynb)
+Here is a link directly to the testing notebook: [CLICK HERE](./Drowsiness/test/Test_Blink_DNN.ipynb)
 
-Te invitamos a abrir el Notebook y realizar el test tu mismo, pero al realizar las pruebas con un dataset de prueba que realizamos, llegamos a los siguientes resultados.
+We invite you to open the Notebook and perform the test yourself, but when testing with a test dataset that we created, we reached the following results.
 
 <img src="https://i.ibb.co/k8mJvrq/image.png" width="1000">
 
-Finalmente los porcentajes de presicion del modelo nos arrojaron lo siguiente.
+Finally, the model precision percentages show us the following.
 
 <img src="https://i.ibb.co/MRSkRXB/image.png" width="1000">
 
-Podemos notar el modelo es perfecto, sin embargo notamos durante las pruebas in field que al cerrar un poco los ojos o distraerlos de la camara el modelo daba como resultado cerrado, que por fines practicos para detectar la somnolencia o la distraccion esto nos es muy util.
+We can see that the model is perfect, however we noticed during the in-field tests that when we closed our eyes a little or distracted them from the camera, the model resulted in closed eyes, which for practical purposes to detect drowsiness or distraction this is very useful to us. .
 
-**NOTA:** en el video demo demostramos esta funcion claramente, puedes ir a verlo para ver este proyecto en funcionamiento!
+**NOTE:** in the demo video we demonstrate this function clearly, you can go watch it to see this project in operation!
 
 ### YoloV3 Model Testing:
 
-Aqui un link directamente al notebook de testing: [CLICK HERE](./Yolo/test/LoadAndTestYolo.ipynb)
+Here is a link directly to the testing notebook: [CLICK HERE](./Yolo/test/LoadAndTestYolo.ipynb)
 
-Te invitamos a abrir el Notebook y realizar el test tu mismo. Sin embargo te compartimos los resultados del test.
+We invite you to open the Notebook and take the test yourself. Nevetheless here we share the test results with you.
 
 <img src="https://i.ibb.co/2SsxxBm/image.png" width="1000">
 
-El modelo utilizado en la prueba es el modelo Yolo-Tiny, debido a que a que es el mas ligero que podemos usar en este proyecto y sus detecciones nos son suficientes para el buen funcionamiento del proyecto. 
+The model used in the test is the Yolo-Tiny model, because it is the lightest that we can use in this project and its detections are not sufficient for the proper functioning of the project.
 
-**NOTA:** En la siguiente seccion veras la comparativa de los modelos en varios HW, si deseas utilizar el modelo YoloV3 completo recomendamos utilizar por lo menos la Jetson Nano, ya que esta si realiza procesamiento en GPU y permite una tasa de Frames realista para funcionar.
+**NOTE:** In the next section you will see the comparison of the models in various HW, if you want to use the complete YoloV3 model we recommend using at least the Jetson Nano, since it does perform processing on GPU and allows a frame rate realistic to function.
 
 # Board Setup:
 
-La elección correcta del hardware para estos modelos de AI es escencial para un correcto funcionamiento, ajustarse al consumo energetico del vehiculo y el presupuesto para realizar este proyecto en produccion.
+The correct choice of hardware for these AI models is essential for correct operation, adjusting to the energy consumption of the vehicle and the budget to carry out this project in production.
 
 <img src="https://i.ibb.co/bXrn5h9/New-Project-4.png" width="1000">
 
-En todas las boards la configuracion de AWS IoT es la misma, ya que se hace a travez de certificados en la siguiente seccion de codigo.
+In all boards the AWS IoT configuration is the same, since it is done through certificates in the following code section.
 
 [CODE](./RPi%20Deploy/iot-mqtt.py)
 
@@ -338,7 +338,7 @@ En todas las boards la configuracion de AWS IoT es la misma, ya que se hace a tr
     certPath = "opencvDNN/certs/aws-iot-device.pem"
     keyPath = "opencvDNN/certs/aws-iot-private.key"
 
-El data frame que hay que mandar a la plataforma para que empiecen a aparecer datos es el siguiente.
+The data frame that must be sent to the platform so that data begins to appear is the following.
 
     {
       "coordinates": [
@@ -350,17 +350,17 @@ El data frame que hay que mandar a la plataforma para que empiecen a aparecer da
       "id": 98574584180
     }
 
-Y la configuracion del GPS de igual forma no tiene diferencia entre una board a otra ya que todas tienen la misma configuracion de 40 pines.
+And the GPS configuration also has no difference from one board to another since they all have the same 40-pin configuration.
 
 [CODE](./RPi%20Deploy/Gps/gps.py)
 
-El modulo GPS no requiere ninguna configuracion adicional, este se confugura solo al tenerlo conectado, cuando este ya este funcionando parpadeara el led en la board cada segundo.
+The GPS module does not require any additional configuration, it is configured only when it is connected, when it is already working the LED on the board will flash every second.
 
 <img src="https://i.ibb.co/gzfhDMr/image.png" width="600">
 
 ## Raspberry Pi 4:
 
-El Raspberry Pi 4 (RPi4) es una board del tamaño de una tarjeta de credito que nos provee las caracteristicas minimas para que este proyecto se pueda realizar.
+The Raspberry Pi 4 (RPi4) is a board the size of a credit card that provides us with the minimum characteristics so that this project can be carried out.
 
 <img src="https://i.ibb.co/MMST3xf/image.png" width="600">
 
@@ -373,7 +373,7 @@ El Raspberry Pi 4 (RPi4) es una board del tamaño de una tarjeta de credito que 
 - Network Interface: Wi-Fi 802.11b/g/n/ac 
 - Board Price: [$55 - (11/28/2023, Seeedstudio)](https://www.seeedstudio.com/Raspberry-Pi-4-Computer-Model-B-4GB-p-4077.html)
 
-En el caso de la RPi4 tenemos la fortuna que existen ya versiones compiladas de OpenCV con el modulo DNN. Los pasos para realizar esta instalacion son los siguientes:
+In the case of the RPi4 we are fortunate that there are already compiled versions of OpenCV with the DNN module. The steps to carry out this installation are as follows:
 
 - Update apt repository.
     
@@ -398,7 +398,7 @@ En el caso de la RPi4 tenemos la fortuna que existen ya versiones compiladas de 
 
       pip install opencv-contrib-python
 
-Una vez hecho esto y podras usar todos los modulos de OpenCV en la RPi4 incluyendo el OpenCV DNN.
+Once this is done you will be able to use all the OpenCV modules on the RPi4 including the OpenCV DNN.
 
 ## Jetson Nano:
 
