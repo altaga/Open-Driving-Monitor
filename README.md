@@ -139,7 +139,7 @@ https://open-driving-navigator.vercel.app/
 
 ## Connection Diagram:
 
-<img src="https://i.ibb.co/XZdX6ZB/software-drawio.png" width="1000">
+<img src="https://i.ibb.co/jLf5LJf/Connection.png" width="1000">
 
 This general connection diagram shows how through a camera we can obtain images of the driver or those of the streets to later obtain relevant data on the driver's alertness, his state of mind and the objects around the car. All fed back by our internal screen and our online web map.
 
@@ -159,7 +159,8 @@ This general connection diagram shows how through a camera we can obtain images 
 
 Our hardware system shows the correct connection of the hardware used, the selection of a raspberry pi as our final hardware was made by doing [benchmarks](#comparison-benchmarks) with other boards specialized in AI.
 
-<img src="https://i.ibb.co/znDn53G/hardware-drawio.png" width="1000">
+<img src="https://i.ibb.co/jLf5LJf/Connection.png
+https://i.ibb.co/2NH9HqQ/hardware.png" width="1000">
 
 - Raspberry Pi 4 (4Gb): This board allows the neural networks corresponding to each module to be run using the OpenCV DNN module with an ideal efficiency for the POC.
 
@@ -183,7 +184,7 @@ The correct training and testing of neural networks is essential to enhance the 
 
 For the efficient training of this type of neural networks, the use of GPUs is usually required due to their exceptional efficiency compared to CPUs. However, this type of infrastructure can be somewhat expensive and difficult to maintain. However, thanks to Google and TensorFlow, it is possible to do this training for free thanks to Google Colab.
 
-<img src="https://i.ibb.co/sFxVFTX/image.png" width="1000">
+<img src="https://i.ibb.co/rdw6GGm/Image.png" width="1000">
 
 By having a Google account, it will give us free access to Jupyter Notebooks Online with GPU or TPU (with certain limitations). Which are enough for us to train, deploy the neural networks and share the notebooks that we will show below.
 
